@@ -2,6 +2,12 @@
 import hashlib, ssl, argparse
 from binascii import a2b_base64
 
+parser = argparse.ArgumentParser()
+parser.add_argument("-hn", "--hostname", dest="hostname", help="Hostname", type=str)
+parser.add_argument("-p", "--port", dest="port", help="Port number", type=int)
+
+args = parser.parse_args()
+
 class CheckSum:
     """Takes the hostname/IP address \
     and relevant port numbers, and returns a beautiful \
@@ -43,7 +49,5 @@ class CheckSum:
         PrintableCert = sha1.hexdigest()
         returnCert = self.formatString(PrintableCert)
         print("SHA1 fingerprint:", returnCert)
-
-google = CheckSum("google.com", 443)
-google.Get256()
-google.Get1()
+value = CheckSum(args.hostname, args.port)
+value.Get256()
