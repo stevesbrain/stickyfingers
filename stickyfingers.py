@@ -4,9 +4,9 @@ import hashlib
 from binascii import a2b_base64
 
 class CheckSum:
-    """Takes the hostname/IP address \ 
-    and relevant port numbers, and returns a beautiful \ 
-    SHA256 fingerprint of the cert; in this case, \ 
+    """Takes the hostname/IP address \
+    and relevant port numbers, and returns a beautiful \
+    SHA256 fingerprint of the cert; in this case, \
     specifically for use with ZNC 1.6"""
     def __init__(self, HostName, PortNum):
         """Initial action performed on the class
