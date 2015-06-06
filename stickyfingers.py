@@ -9,6 +9,8 @@ class CheckSum:
     SHA256 fingerprint of the cert; in this case,
     specifically for use with ZNC 1.6"""
     def __init__(self, HostName, PortNum):
+        """Initial action performed on the class
+        to fetch the SSL certificate, and convert to DER"""
         #Give us some initial values
         self.HostName = HostName
         self.PortNum = PortNum
@@ -27,6 +29,7 @@ class CheckSum:
         certFormat = ':'.join(a+b for a,b in zip(splitter, splitter))
         return(certFormat)
     def Get256(self):
+        """Returns the SHA256 fingerprint of the DER cert"""
         sha256 = hashlib.sha256()
         #Get the SHA256 sum of the DER cert
         sha256.update(self.der)
@@ -35,6 +38,7 @@ class CheckSum:
         returnCert = self.formatString(PrintableCert)
         print("SHA256 fingerprint:", returnCert)
     def Get1(self):
+        """Returns the SHA1 fingerprint of the DER cert"""
         sha1 = hashlib.sha1()
         sha1.update(self.der)
         PrintableCert = sha1.hexdigest()
