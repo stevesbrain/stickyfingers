@@ -1,6 +1,5 @@
 #Import some libs and stuff
-import ssl
-import hashlib
+import hashlib, ssl, argparse
 from binascii import a2b_base64
 
 class CheckSum:
