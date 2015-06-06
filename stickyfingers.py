@@ -15,8 +15,10 @@ HostCert = ssl.get_server_certificate(Host)  #.encode('utf-8')
 #Convert from PEM to DER
 lines = HostCert.replace(" ",'').split()
 der = a2b_base64(''.join(lines[1:-1]))
-#Checksum the certificate
+#Update checksum with the certificate
 sha256.update(der)
-#Make it nice and printable, then show it
+#Make it nice and printable, with semicolons between every second character
 PrintableCert = sha256.hexdigest()
-print(PrintableCert)
+splitter = iter(PrintableCert)
+FormattedCert = ':'.join(a+b for a,b in zip(splitter, splitter))
+print(FormattedCert)
