@@ -9,7 +9,7 @@ class CheckSum:
     SHA256 fingerprint of the cert; in this case, \
     specifically for use with ZNC 1.6"""
     def __init__(self, HostName, PortNum):
-        """Initial action performed on the class
+        """Initial action performed on the classi \
         to fetch the SSL certificate, and convert to DER"""
         #Give us some initial values
         self.HostName = HostName
@@ -21,8 +21,8 @@ class CheckSum:
         lines = HostCert.replace(" ",'').split()
         self.der = der = a2b_base64(''.join(lines[1:-1]))
     def formatString(self, cert):
-        """Formats whatever string you throw at it
-        in XX:XX:XX format. The Certificate is thrown
+        """Formats whatever string you throw at it \
+        in XX:XX:XX format. The Certificate is thrown \
         as the variable here."""
         self.cert = cert
         splitter = iter(cert)
