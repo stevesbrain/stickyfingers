@@ -51,3 +51,4 @@ class CheckSum:
         print("SHA1 fingerprint:", returnCert)
 value = CheckSum(args.hostname, args.port)
 value.Get256()
+value.Get1()
